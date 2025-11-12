@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LanisMusic - Contact & Booking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">`LanisMusic</a>
+            <div class="nav-links">
+                <a href="discography.html">Discography</a>
+                <a href="media.html">Media</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        
+        <section class="page-hero">
+            <h1 class="page-title">Contact & Booking</h1>
+            <p class="page-subtitle">For professional inquiries, interviews, or collaborations only.</p>
+        </section>
+
+        <section class="contact-form-container">
+            <form action="submit_form.php" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button cta-button">Send Inquiry</button>
+            </form>
+        </section>
+        
+        <section class="social-links-container">
+            <p class="follow-text">Connect with Delani:</p>
+            <div class="social-icons">
+                <a href="#" target="_blank">Instagram</a> 
+                <a href="#" target="_blank">Spotify</a>
+                <a href="#" target="_blank">Apple Music</a>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="site-footer">
+        <p>&copy; 2025 Delani. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

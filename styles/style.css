@@ -1,0 +1,319 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+    --color-charcoal: #121212; /* Dark background */
+    --color-dark-green: #0a4f40; /* Deep primary color from logo */
+    --color-accent: #E5E5E5;    /* Light text color (Off-white/Cream) */
+    --color-highlight: #d4af37; /* Subtle warm gold for CTAs/Hover */
+    --font-heading: 'Playfair Display', serif; /* Replace with elegant Google Font */
+    --font-body: 'Montserrat', sans-serif;  /* Replace with simple Font */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-charcoal);
+    color: var(--color-accent);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scroll from large elements */
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-highlight);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+     
+}
+/* --- 2. Site Header & Navigation --- */
+.site-header {
+    position: fixed; /* Stays visible at top */
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 5%;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-dark-green); /* Use the logo's green for contrast */
+}
+
+.nav-links a {
+    margin-left: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 3. Hero Section (Full-Screen Cinematic) --- */
+.hero-section {
+    min-height: 100vh; /* Takes up full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+    /* --- BACKGROUND STYLES (NOW CORRECT FOR PNG) --- */
+    background-image: url('../images/hero-bg.png'); /* NOTE THE .png EXTENSION */
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed;
+    
+    /* Overlay setup */
+    position: relative; 
+    z-index: 1;
+}
+
+/* This is the dark overlay to help text stand out */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 40% opaque black overlay */
+    z-index: -1; 
+}
+
+/* Ensure text is above the overlay */
+.hero-title, .hero-subtitle, .cta-button {
+    z-index: 2; 
+    position: relative;
+}
+
+.hero-title {
+    font-size: 4.5em; /* Large, dramatic text */
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    background-color: transparent;
+    border: 2px solid var(--color-highlight);
+    padding: 12px 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* --- 4. Bio Section --- */
+.bio-section {
+    padding: 80px 10%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bio-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--color-highlight);
+}
+
+.bio-text {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+/* --- 5. Discography Page Styles --- */
+
+/* Page Header (General style for pages other than the index hero) */
+.page-hero {
+    padding-top: 150px; /* Push content down past fixed header */
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+/* Album Grid Layout (Using CSS Grid) */
+.album-grid {
+    display: grid;
+    /* This rule creates the desired 3-column layout */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; /* Space between the album items */
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto 100px auto; /* Centers the grid */
+    text-align: center;
+}
+
+.album-item {
+    padding: 20px;
+}
+
+.album-cover {
+    width: 100%; 
+    max-width: 350px; 
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    transition: transform 0.3s ease;
+}
+
+.album-item:hover .album-cover {
+    transform: scale(1.03); /* Subtle zoom effect on hover */
+}
+
+.album-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.album-year {
+    color: var(--color-dark-green);
+    margin-bottom: 15px;
+}
+
+.album-cta {
+    border: 1px solid var(--color-accent);
+    padding: 8px 15px;
+    display: inline-block;
+}
+
+/* --- 6. Media Query for Responsiveness (Crucial for mobile) --- */
+@media (max-width: 768px) {
+    .album-grid {
+        /* On small screens (mobiles/tablets), switch to two columns */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .album-grid {
+        /* On very small screens, switch to a single column */
+        grid-template-columns: 1fr; 
+    }
+}
+/* --- 7. Media Page Styles --- */
+.section-heading {
+    text-align: center;
+    font-size: 2em;
+    padding: 50px 0 30px 0;
+    color: var(--color-highlight); 
+}
+
+/* Photo Grid (using CSS Grid for a gallery look) */
+.photo-grid-container {
+    margin-bottom: 100px;
+}
+
+.photo-grid {
+    display: grid;
+    /* Create four columns for a clean gallery effect */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; /* Space between photos */
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* --- 8. Media Query for Media Page Responsiveness --- */
+@media (max-width: 768px) {
+    .photo-grid {
+        /* On small screens, switch photo gallery to two columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .photo-grid {
+        /* On tiny screens, stack photos */
+        grid-template-columns: 1fr;
+    }
+}
+/* --- 9. Contact Page Styles --- */
+
+.contact-form-container {
+    padding: 50px 5%;
+    max-width: 600px;
+    margin: 0 auto; /* Center the form */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-dark-green); /* Use the accent green color */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="subject"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-charcoal); /* Match background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
+    color: var(--color-accent);
+    font-size: 1em;
+    resize: vertical; /* Allow vertical resizing for the textarea */
+}
+
+.contact-form textarea:focus,
+.contact-form input:focus {
+    outline: none;
+    border-color: var(--color-highlight); /* Highlight border on focus */
+}
+
+.submit-button {
+    /* Inherits styling from .cta-button */
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Social Links Section */
+.social-links-container {
+    text-align: center;
+    padding: 40px 0 100px 0;
+}
+
+.follow-text {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    margin: 0 15px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
