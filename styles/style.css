@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
     /* --- BACKGROUND STYLES (NOW CORRECT FOR PNG) --- */
     background-image: url('../images/new-hero-bg.jpg'); /* NOTE THE .png EXTENSION */
     background-size: cover; 
-    background-position: center; 
+    background-position: center top; 
     background-attachment: fixed;
     
     /* Overlay setup */
